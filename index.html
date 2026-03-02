@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BEYOND BODY - 完全個室マンツーマンパーソナルジム。2ヶ月で人生を変える短期集中型ボディメイク。表参道駅徒歩2分。無料カウンセリング受付中。">
+<meta property="og:title" content="BEYOND BODY | 完全個室パーソナルジム">
+<meta property="og:description" content="完全個室・マンツーマン指導で理想のカラダを手に入れる。2ヶ月で人生が変わる短期集中ボディメイク。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<title>BEYOND BODY | 完全個室マンツーマンパーソナルジム - 表参道</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0a0a0a;
+  --accent:#e8910c;
+  --accent-hover:#f5a623;
+  --white:#ffffff;
+  --gray:#b0b0b0;
+  --dark-gray:#1a1a1a;
+  --off-black:#111111;
+  --border:rgba(255,255,255,.08);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  color:var(--white);background:var(--black);
+  line-height:1.8;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* Utility */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.section-padding{padding:100px 0}
+.section-title{
+  font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;
+  letter-spacing:.06em;text-align:center;margin-bottom:12px;
+}
+.section-subtitle{
+  text-align:center;font-size:.875rem;color:var(--accent);
+  letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  margin-bottom:56px;
+}
+.bg-dark{background:var(--dark-gray)}
+.bg-off-black{background:var(--off-black)}
+
+/* CTA Button */
+.btn-cta{
+  display:inline-block;padding:18px 48px;
+  background:var(--accent);color:var(--white);
+  font-size:1rem;font-weight:700;letter-spacing:.1em;
+  border:none;border-radius:4px;cursor:pointer;
+  transition:transform .3s,box-shadow .3s,background .3s;
+}
+.btn-cta:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px rgba(232,145,12,.45);
+  background:var(--accent-hover);
+}
+.btn-cta-outline{
+  display:inline-block;padding:14px 40px;
+  border:2px solid var(--accent);color:var(--accent);
+  font-size:.9375rem;font-weight:700;letter-spacing:.1em;
+  border-radius:4px;transition:background .3s,color .3s,transform .3s,box-shadow .3s;
+}
+.btn-cta-outline:hover{
+  background:var(--accent);color:var(--white);
+  transform:scale(1.05);box-shadow:0 0 20px rgba(232,145,12,.35);
+}
+
+/* Animations */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.slide-left{opacity:0;transform:translateX(-50px);transition:opacity .7s ease,transform .7s ease}
+.slide-left.visible{opacity:1;transform:translateX(0)}
+.slide-right{opacity:0;transform:translateX(50px);transition:opacity .7s ease,transform .7s ease}
+.slide-right.visible{opacity:1;transform:translateX(0)}
+
+/* ===== HEADER ===== */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  padding:18px 0;transition:background .4s,padding .4s,backdrop-filter .4s;
+}
+header.scrolled{
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);
+  padding:12px 0;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1200px;margin:0 auto;padding:0 24px;
+}
+.logo{font-size:1.5rem;font-weight:900;letter-spacing:.12em;color:var(--white)}
+.logo span{color:var(--accent)}
+.header-cta{
+  padding:10px 28px;background:var(--accent);color:var(--white);
+  font-size:.8125rem;font-weight:700;letter-spacing:.08em;
+  border:none;border-radius:3px;cursor:pointer;
+  transition:background .3s,transform .3s;
+}
+.header-cta:hover{background:var(--accent-hover);transform:scale(1.05)}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:4px;background:none;border:none;z-index:1001}
+.hamburger span{display:block;width:26px;height:2px;background:var(--white);transition:transform .3s,opacity .3s}
+.hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+.mobile-nav{
+  display:none;position:fixed;inset:0;
+  background:rgba(10,10,10,.98);z-index:999;
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--white);font-size:1.125rem;letter-spacing:.12em;font-weight:500;transition:color .3s}
+.mobile-nav a:hover{color:var(--accent)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;height:100vh;min-height:700px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80') center/cover no-repeat;
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.7) 0%,rgba(10,10,10,.85) 100%)}
+.hero-content{position:relative;text-align:center;padding:0 24px;max-width:800px}
+.hero-content h1{
+  font-size:clamp(2rem,6vw,3.75rem);font-weight:900;
+  letter-spacing:.08em;line-height:1.3;margin-bottom:24px;
+}
+.hero-content h1 em{font-style:normal;color:var(--accent)}
+.hero-content p{
+  font-size:clamp(.9375rem,1.8vw,1.125rem);
+  font-weight:300;color:var(--gray);line-height:2;margin-bottom:40px;
+}
+.hero-badge{
+  display:inline-block;margin-top:24px;
+  padding:10px 32px;background:rgba(232,145,12,.15);
+  border:1px solid var(--accent);border-radius:50px;
+  font-size:.875rem;font-weight:700;color:var(--accent);letter-spacing:.06em;
+}
+.hero-badge s{color:var(--gray);font-weight:400;margin-right:4px}
+
+/* ===== PROBLEMS ===== */
+.problems-list{max-width:700px;margin:0 auto}
+.problems-list li{
+  padding:20px 0;border-bottom:1px solid var(--border);
+  font-size:clamp(.9375rem,1.5vw,1.0625rem);
+  color:var(--gray);padding-left:32px;position:relative;line-height:1.9;
+}
+.problems-list li::before{
+  content:'';position:absolute;left:0;top:26px;
+  width:16px;height:2px;background:var(--accent);
+}
+.problems-cta{
+  text-align:center;margin-top:48px;
+  font-size:1.125rem;font-weight:700;color:var(--white);letter-spacing:.06em;
+}
+
+/* ===== REASONS ===== */
+.reasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.reason-card{
+  background:var(--off-black);border:1px solid var(--border);
+  padding:48px 32px;text-align:center;
+  transition:transform .3s,border-color .3s;
+}
+.reason-card:hover{transform:translateY(-4px);border-color:rgba(232,145,12,.3)}
+.reason-icon{
+  width:72px;height:72px;margin:0 auto 24px;
+  border:2px solid var(--accent);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.75rem;color:var(--accent);
+}
+.reason-card h3{
+  font-size:1.125rem;font-weight:700;margin-bottom:16px;letter-spacing:.06em;
+}
+.reason-card p{font-size:.875rem;color:var(--gray);line-height:1.9}
+
+/* ===== RESULTS ===== */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.result-card{
+  background:var(--dark-gray);border:1px solid var(--border);
+  padding:40px 32px;position:relative;overflow:hidden;
+}
+.result-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+}
+.result-profile{font-size:.8125rem;color:var(--accent);font-weight:700;margin-bottom:20px;letter-spacing:.06em}
+.result-stats{display:flex;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+.result-stat{text-align:center}
+.result-stat .num{font-size:1.5rem;font-weight:900;color:var(--white);display:block;line-height:1.2}
+.result-stat .label{font-size:.6875rem;color:var(--gray)}
+.result-comment{
+  font-size:.875rem;color:var(--gray);line-height:1.9;
+  padding-top:20px;border-top:1px solid var(--border);font-style:italic;
+}
+.results-note{text-align:center;margin-top:32px;font-size:.75rem;color:rgba(176,176,176,.6)}
+
+/* ===== PRICING ===== */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.price-card{
+  background:var(--dark-gray);border:1px solid var(--border);
+  padding:48px 32px;text-align:center;position:relative;
+  transition:transform .3s;
+}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.recommended{border-color:var(--accent);transform:scale(1.03)}
+.price-card.recommended:hover{transform:scale(1.06)}
+.price-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:var(--white);
+  padding:6px 24px;font-size:.75rem;font-weight:700;
+  letter-spacing:.1em;border-radius:20px;
+}
+.price-card h3{font-size:1.25rem;font-weight:700;margin-bottom:8px;letter-spacing:.06em}
+.price-amount{
+  font-size:2.25rem;font-weight:900;color:var(--accent);
+  margin-bottom:4px;line-height:1.2;
+}
+.price-amount small{font-size:.875rem;font-weight:400;color:var(--gray)}
+.price-unit{font-size:.8125rem;color:var(--gray);margin-bottom:24px}
+.price-features{text-align:left;margin-bottom:32px}
+.price-features li{
+  padding:8px 0;font-size:.875rem;color:var(--gray);
+  border-bottom:1px solid var(--border);padding-left:20px;position:relative;
+}
+.price-features li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700}
+.price-guarantee{
+  margin-top:40px;text-align:center;
+  padding:16px;border:1px dashed rgba(232,145,12,.4);border-radius:8px;
+  font-size:.8125rem;color:var(--accent);font-weight:500;letter-spacing:.06em;
+}
+
+/* ===== TRAINERS ===== */
+.trainers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:900px;margin:0 auto}
+.trainer-card{
+  background:var(--dark-gray);border:1px solid var(--border);overflow:hidden;
+  transition:transform .3s;
+}
+.trainer-card:hover{transform:translateY(-4px)}
+.trainer-img{width:100%;height:320px;object-fit:cover;filter:grayscale(20%)}
+.trainer-info{padding:32px}
+.trainer-info h3{font-size:1.25rem;font-weight:700;margin-bottom:4px}
+.trainer-info .role{font-size:.8125rem;color:var(--accent);margin-bottom:16px;font-weight:500}
+.trainer-info .creds{font-size:.8125rem;color:var(--gray);margin-bottom:16px;line-height:1.8}
+.trainer-info .message{
+  font-size:.875rem;color:var(--gray);line-height:1.9;
+  padding:16px;background:rgba(255,255,255,.03);border-left:3px solid var(--accent);
+}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-question{
+  width:100%;background:none;border:none;color:var(--white);
+  padding:24px 48px 24px 0;font-size:1rem;font-weight:500;
+  text-align:left;cursor:pointer;position:relative;
+  font-family:'Noto Sans JP',sans-serif;letter-spacing:.04em;line-height:1.7;
+}
+.faq-question::before{
+  content:'Q.';color:var(--accent);font-weight:900;margin-right:12px;
+}
+.faq-question::after{
+  content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-size:1.5rem;color:var(--accent);transition:transform .3s;font-weight:300;
+}
+.faq-item.open .faq-question::after{content:'−'}
+.faq-answer{
+  max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;
+}
+.faq-item.open .faq-answer{max-height:300px;padding-bottom:24px}
+.faq-answer p{
+  font-size:.9375rem;color:var(--gray);line-height:2;padding-left:32px;
+}
+
+/* ===== ACCESS ===== */
+.access-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.access-map iframe{width:100%;height:100%;min-height:350px;border:0;filter:grayscale(80%) brightness(.8)}
+.access-info h3{font-size:1.125rem;font-weight:700;margin-bottom:24px;letter-spacing:.06em}
+.access-detail dt{font-size:.75rem;color:var(--accent);font-weight:700;letter-spacing:.12em;margin-bottom:4px}
+.access-detail dd{font-size:.9375rem;color:var(--gray);margin-bottom:20px}
+.access-detail dd a{color:var(--white);font-weight:500}
+
+/* ===== FINAL CTA ===== */
+.final-cta{
+  position:relative;padding:120px 24px;text-align:center;overflow:hidden;
+}
+.final-cta-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920&q=80') center/cover no-repeat;
+}
+.final-cta-overlay{position:absolute;inset:0;background:rgba(10,10,10,.88)}
+.final-cta-content{position:relative;max-width:700px;margin:0 auto}
+.final-cta-content h2{
+  font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;
+  letter-spacing:.08em;margin-bottom:16px;
+}
+.final-cta-content p{font-size:1rem;color:var(--gray);margin-bottom:40px;line-height:1.9}
+.final-cta-phone{
+  font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;
+  color:var(--accent);letter-spacing:.06em;margin:32px 0 8px;
+}
+.final-cta-phone-note{font-size:.8125rem;color:var(--gray);margin-bottom:32px}
+.final-cta-campaign{
+  display:inline-block;margin-top:24px;
+  padding:12px 32px;background:rgba(232,145,12,.12);
+  border:1px solid var(--accent);border-radius:50px;
+  font-size:.875rem;font-weight:700;color:var(--accent);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--off-black);text-align:center;
+  padding:48px 24px;font-size:.8125rem;color:rgba(176,176,176,.5);line-height:2;
+}
+footer .footer-logo{font-size:1.125rem;font-weight:900;color:rgba(255,255,255,.4);letter-spacing:.12em;margin-bottom:12px}
+footer .sample-note{
+  margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.05);
+  font-size:.6875rem;opacity:.4;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .reasons-grid,.results-grid,.pricing-grid{grid-template-columns:1fr}
+  .trainers-grid{grid-template-columns:1fr;max-width:500px}
+  .access-inner{grid-template-columns:1fr}
+  .access-map iframe{min-height:280px}
+  .price-card.recommended{transform:none}
+  .price-card.recommended:hover{transform:translateY(-4px)}
+}
+@media(max-width:768px){
+  .header-cta{display:none}
+  .hamburger{display:flex}
+  .section-padding{padding:72px 0}
+  .hero{min-height:600px}
+  .result-stats{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">BEYOND<span>BODY</span></a>
+    <a href="#final-cta" class="header-cta">無料カウンセリング予約</a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#problems">こんなお悩み</a>
+  <a href="#reasons">選ばれる理由</a>
+  <a href="#results">お客様の変化</a>
+  <a href="#pricing">料金プラン</a>
+  <a href="#trainers">トレーナー</a>
+  <a href="#faq">よくある質問</a>
+  <a href="#access">アクセス</a>
+  <a href="#final-cta">無料カウンセリング予約</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="ジム内装イメージ"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>2ヶ月で、<em>人生が変わる。</em></h1>
+    <p>完全個室・マンツーマン指導で理想のカラダを手に入れる。<br>あなた専属のトレーナーが、最短ルートで結果にコミットします。</p>
+    <a href="#final-cta" class="btn-cta">無料カウンセリングを予約する</a>
+    <div class="hero-badge">今月限定：入会金 <s>50,000円</s> → <strong>0円</strong></div>
+  </div>
+</section>
+
+<!-- Problems -->
+<section class="bg-dark section-padding" id="problems">
+  <div class="container">
+    <h2 class="section-title fade-up">こんなお悩みありませんか？</h2>
+    <p class="section-subtitle fade-up">Problems</p>
+    <ul class="problems-list">
+      <li class="fade-up">ダイエットに何度も失敗して、もう自分には無理だと思っている</li>
+      <li class="fade-up">自己流のトレーニングで結果が出ず、正しいやり方がわからない</li>
+      <li class="fade-up">忙しくて運動の時間がなかなか取れない</li>
+      <li class="fade-up">大手ジムに通ったけど続かなかった</li>
+      <li class="fade-up">結婚式やイベントまでに確実に痩せたい</li>
+    </ul>
+    <p class="problems-cta fade-up">一つでも当てはまる方、<span style="color:var(--accent)">BEYOND BODY</span>にお任せください。</p>
+  </div>
+</section>
+
+<!-- Reasons -->
+<section class="bg-off-black section-padding" id="reasons">
+  <div class="container">
+    <h2 class="section-title fade-up">選ばれる3つの理由</h2>
+    <p class="section-subtitle fade-up">Why Choose Us</p>
+    <div class="reasons-grid">
+      <div class="reason-card slide-left">
+        <div class="reason-icon" aria-hidden="true">&#9733;</div>
+        <h3>完全マンツーマン指導</h3>
+        <p>あなた専属のトレーナーが毎回のセッションを担当。体質・目標・ライフスタイルに合わせた完全オーダーメイドのプログラムを設計します。</p>
+      </div>
+      <div class="reason-card fade-up">
+        <div class="reason-icon" aria-hidden="true">&#9829;</div>
+        <h3>食事指導込みの徹底サポート</h3>
+        <p>トレーニングだけでは結果は出ません。管理栄養士監修の食事プランで、毎日の食事をLINEでサポート。無理な食事制限は一切なし。</p>
+      </div>
+      <div class="reason-card slide-right">
+        <div class="reason-icon" aria-hidden="true">&#9670;</div>
+        <h3>完全個室でプライバシー確保</h3>
+        <p>他のお客様と顔を合わせることはありません。人目を気にせず、集中してトレーニングに取り組める環境をご用意。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="bg-dark section-padding" id="results">
+  <div class="container">
+    <h2 class="section-title fade-up">お客様の変化</h2>
+    <p class="section-subtitle fade-up">Results</p>
+    <div class="results-grid">
+      <div class="result-card fade-up">
+        <div class="result-profile">30代女性・会社員</div>
+        <div class="result-stats">
+          <div class="result-stat"><span class="num">-8.5<small>kg</small></span><span class="label">体重</span></div>
+          <div class="result-stat"><span class="num">-9.2<small>%</small></span><span class="label">体脂肪率</span></div>
+          <div class="result-stat"><span class="num">2<small>ヶ月</small></span><span class="label">期間</span></div>
+        </div>
+        <p class="result-comment">「自己流ダイエットの繰り返しでしたが、初めて成功しました。」</p>
+      </div>
+      <div class="result-card fade-up">
+        <div class="result-profile">40代男性・経営者</div>
+        <div class="result-stats">
+          <div class="result-stat"><span class="num">-12.3<small>kg</small></span><span class="label">体重</span></div>
+          <div class="result-stat"><span class="num">-11.8<small>%</small></span><span class="label">体脂肪率</span></div>
+          <div class="result-stat"><span class="num">3<small>ヶ月</small></span><span class="label">期間</span></div>
+        </div>
+        <p class="result-comment">「スーツが2サイズダウンし、仕事の自信にも繋がりました。」</p>
+      </div>
+      <div class="result-card fade-up">
+        <div class="result-profile">20代女性・看護師</div>
+        <div class="result-stats">
+          <div class="result-stat"><span class="num">-6.2<small>kg</small></span><span class="label">体重</span></div>
+          <div class="result-stat"><span class="num">-7.5<small>%</small></span><span class="label">体脂肪率</span></div>
+          <div class="result-stat"><span class="num">2<small>ヶ月</small></span><span class="label">期間</span></div>
+        </div>
+        <p class="result-comment">「結婚式に間に合いました。一生の思い出になりました。」</p>
+      </div>
+    </div>
+    <p class="results-note">※ 個人の感想であり、効果を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="bg-off-black section-padding" id="pricing">
+  <div class="container">
+    <h2 class="section-title fade-up">料金プラン</h2>
+    <p class="section-subtitle fade-up">Pricing</p>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <h3>スタンダードプラン</h3>
+        <div class="price-amount">98,000<small>円</small></div>
+        <div class="price-unit">月額（税込）</div>
+        <ul class="price-features">
+          <li>週2回 × 2ヶ月（全16回）</li>
+          <li>パーソナルトレーニング 50分/回</li>
+          <li>食事指導付き</li>
+        </ul>
+        <a href="#final-cta" class="btn-cta-outline">詳しく見る</a>
+      </div>
+      <div class="price-card recommended fade-up">
+        <div class="price-badge">おすすめ</div>
+        <h3>プレミアムプラン</h3>
+        <div class="price-amount">148,000<small>円</small></div>
+        <div class="price-unit">月額（税込）</div>
+        <ul class="price-features">
+          <li>週3回 × 2ヶ月（全24回）</li>
+          <li>パーソナルトレーニング 50分/回</li>
+          <li>食事指導 ＋ LINEサポート</li>
+          <li>プロテイン提供</li>
+          <li>ウェア・タオルレンタル無料</li>
+        </ul>
+        <a href="#final-cta" class="btn-cta">無料カウンセリング</a>
+      </div>
+      <div class="price-card fade-up">
+        <h3>体験プラン</h3>
+        <div class="price-amount" style="text-decoration:line-through;color:var(--gray);font-size:1.25rem">5,000円</div>
+        <div class="price-amount">0<small>円</small></div>
+        <div class="price-unit">今月限定（税込）</div>
+        <ul class="price-features">
+          <li>1回体験（50分）</li>
+          <li>カウンセリング＋体組成測定</li>
+          <li>オリジナルプラン提案</li>
+        </ul>
+        <a href="#final-cta" class="btn-cta-outline">体験を予約</a>
+      </div>
+    </div>
+    <div class="price-guarantee fade-up">30日間全額返金保証 — 結果にご満足いただけなかった場合、全額返金いたします。</div>
+  </div>
+</section>
+
+<!-- Trainers -->
+<section class="bg-dark section-padding" id="trainers">
+  <div class="container">
+    <h2 class="section-title fade-up">トレーナー紹介</h2>
+    <p class="section-subtitle fade-up">Trainers</p>
+    <div class="trainers-grid">
+      <div class="trainer-card slide-left">
+        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80" alt="鈴木 翔太" class="trainer-img" loading="lazy">
+        <div class="trainer-info">
+          <h3>鈴木 翔太</h3>
+          <p class="role">チーフトレーナー</p>
+          <p class="creds">NSCA-CPT / 栄養士<br>指導実績 500名以上</p>
+          <div class="message">「正しい方法で努力すれば、必ず結果は出ます。一緒に頑張りましょう。」</div>
+        </div>
+      </div>
+      <div class="trainer-card slide-right">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="田中 あかり" class="trainer-img" loading="lazy">
+        <div class="trainer-info">
+          <h3>田中 あかり</h3>
+          <p class="role">トレーナー</p>
+          <p class="creds">NESTA-PFT / 管理栄養士<br>女性専門指導 300名以上</p>
+          <div class="message">「女性ならではの悩みに寄り添い、美しいボディラインを作るお手伝いをします。」</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-off-black section-padding" id="faq">
+  <div class="container">
+    <h2 class="section-title fade-up">よくある質問</h2>
+    <p class="section-subtitle fade-up">FAQ</p>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <button class="faq-question">運動経験がなくても大丈夫ですか？</button>
+        <div class="faq-answer"><p>はい、会員様の約70%が運動未経験からスタートしています。お一人おひとりの体力レベルに合わせたメニューを組みますのでご安心ください。</p></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question">食事制限は厳しいですか？</button>
+        <div class="faq-answer"><p>極端な食事制限は行いません。管理栄養士監修のもと、普段の食事を少しずつ改善していくアプローチです。</p></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question">予約のキャンセルはできますか？</button>
+        <div class="faq-answer"><p>前日の21時までのキャンセルは無料です。当日キャンセルは1回分消化となりますのでご了承ください。</p></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question">支払い方法は何がありますか？</button>
+        <div class="faq-answer"><p>クレジットカード、銀行振込、分割払い（最大12回）に対応しています。</p></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question">コース終了後はどうなりますか？</button>
+        <div class="faq-answer"><p>月額制のメンテナンスプラン（月4回 39,800円）をご用意しています。もちろん卒業も自由です。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Access -->
+<section class="bg-dark section-padding" id="access">
+  <div class="container">
+    <h2 class="section-title fade-up">アクセス</h2>
+    <p class="section-subtitle fade-up">Access</p>
+    <div class="access-inner fade-up">
+      <div class="access-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2!2d139.7085!3d35.6655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca3b8aed4f3%3A0x7dc51c5ce3a6d849!2z5a6u5YmN!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ジムの地図"></iframe>
+      </div>
+      <div class="access-info">
+        <h3>BEYOND BODY 表参道店</h3>
+        <dl class="access-detail">
+          <dt>住所</dt>
+          <dd>〒150-0001<br>東京都渋谷区神宮前4-10-8<br>表参道スクエアビル3F</dd>
+          <dt>電話番号</dt>
+          <dd><a href="tel:0398765432">03-9876-5432</a></dd>
+          <dt>最寄り駅</dt>
+          <dd>東京メトロ 表参道駅 A2出口 徒歩2分</dd>
+          <dt>営業時間</dt>
+          <dd>7:00 - 23:00（年中無休・完全予約制）</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="final-cta">
+  <div class="final-cta-bg" role="img" aria-label="トレーニングイメージ"></div>
+  <div class="final-cta-overlay"></div>
+  <div class="final-cta-content fade-up">
+    <h2>まずは無料カウンセリングから。</h2>
+    <p>あなたの理想のカラダへの第一歩を、私たちがサポートします。</p>
+    <a href="#" class="btn-cta">無料カウンセリングを予約する</a>
+    <div class="final-cta-phone">03-9876-5432</div>
+    <p class="final-cta-phone-note">受付時間：7:00-23:00（年中無休）</p>
+    <div class="final-cta-campaign">今月限定：入会金0円キャンペーン実施中</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">BEYOND BODY</div>
+  <p>東京都渋谷区神宮前4-10-8 表参道スクエアビル3F<br>TEL: 03-9876-5432 ／ 営業時間: 7:00-23:00（年中無休）</p>
+  <p>&copy; 2026 BEYOND BODY All Rights Reserved.</p>
+  <p class="sample-note">※ このサイトはポートフォリオ用のサンプルサイトです。実在するジムではありません。</p>
+</footer>
+
+<script>
+(function(){
+  // Header scroll
+  var header=document.getElementById('header');
+  function onScroll(){header.classList.toggle('scrolled',window.scrollY>50)}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // Hamburger
+  var hamburger=document.getElementById('hamburger');
+  var mobileNav=document.getElementById('mobileNav');
+  hamburger.addEventListener('click',function(){
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow=mobileNav.classList.contains('open')?'hidden':'';
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+
+  // Scroll animations
+  var animEls=document.querySelectorAll('.fade-up,.slide-left,.slide-right');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+      });
+    },{threshold:.12});
+    animEls.forEach(function(el){obs.observe(el)});
+  }else{
+    animEls.forEach(function(el){el.classList.add('visible')});
+  }
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=this.parentElement;
+      var wasOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
